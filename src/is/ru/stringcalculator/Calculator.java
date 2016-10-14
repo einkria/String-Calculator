@@ -7,7 +7,13 @@ public class Calculator {
 			return 0;
 		}
 		else if( text.contains(",")){
-			String [] sa = text.split(",");
+			String[] sa;
+			if(text.contains("\n")){
+				sa = text.split(",|\n");
+			}
+			else{
+				sa = text.split(",");
+			}
 			int result = 0;
 			for(String i : sa){
 				result += toInt(i);
