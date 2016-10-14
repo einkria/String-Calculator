@@ -34,4 +34,10 @@ public class CalculatorTest {
 	public void testNewLine(){
 		assertEquals(6, Calculator.add("1,2\n3"));
 	}
+	
+	@Test
+	public void testNegative(){
+		assertEquals(1, Calculator.add("2,-4,3,-5"));
+	}
 }    
+

@@ -14,6 +14,7 @@ public class Calculator {
 			else{
 				sa = text.split(",");
 			}
+			checkNegative(sa);
 			int result = 0;
 			for(String i : sa){
 				result += toInt(i);
@@ -21,9 +22,23 @@ public class Calculator {
 			return result;
 		}
 		else
-			return 1;
+			return toInt(text);
 	}
-	
+	private static void checkNegative(String[] text){
+		String ex = "Negatives Not Allowed: ";
+		boolean hasNeg = false;
+		for(int i = 0; i < text.length; i++){
+			int k = toInt(text[i]);
+			if(k < 0){
+				ex+= text[i];
+				hasNeg = true;
+				}
+			}
+		if(hasNeg){
+			throw new IllegalArgumentException(ex);
+		}
+		
+	}
 	private static int toInt(String text){
 		return Integer.parseInt(text);
 	}
