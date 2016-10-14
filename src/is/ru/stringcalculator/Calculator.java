@@ -6,13 +6,25 @@ public class Calculator {
 		if(text.isEmpty()){
 			return 0;
 		}
-		else if( text.contains(",")){
+		else if(text.length() > 1){
+			String[] sa = null;
+			String delim = ",|\n";
+			if(text.startsWith("//")){
+				int delimIndex = text.indexOf("//")+2;
+				delim = text.substring(delimIndex, delimIndex+1);
+				String newS = text.substring(text.indexOf("\n")+1);
+				sa = newS.split(delim);
+			}
+		/*else if( text.contains(",")){
 			String[] sa;
 			if(text.contains("\n")){
 				sa = text.split(",|\n");
 			}
 			else{
 				sa = text.split(",");
+			}*/
+			else{
+				sa = text.split(delim);
 			}
 			checkNegative(sa);
 			int result = 0;
