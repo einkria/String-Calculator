@@ -17,7 +17,10 @@ public class Calculator {
 			checkNegative(sa);
 			int result = 0;
 			for(String i : sa){
-				result += toInt(i);
+				int value = toInt(i);
+				if(value <= 1000){
+					result += value;
+				}
 			}
 			return result;
 		}
